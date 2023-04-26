@@ -1,0 +1,23 @@
+import random
+
+def love_test():
+    print('Welcome to the Love Test!')
+    name1 = input('Please enter the first name: ')
+    name2 = input('Please enter the second name: ')
+
+    combined_name = name1.lower() + name2.lower()
+    score = sum([ord(c) - ord('a') + 1 for c in combined_name])
+
+    # add some randomness to the score
+    random.seed(combined_name)
+    score += random.randint(-10, 10)
+
+    if score < 50:
+        print('Sorry, the love score is only', score, '- this is not a good match.')
+    elif score < 80:
+        print('The love score is', score, '- this could be a good match!')
+    else:
+        print('Congratulations, the love score is', score, '- this is a great match!')
+
+if __name__ == '__main__':
+    love_test()
